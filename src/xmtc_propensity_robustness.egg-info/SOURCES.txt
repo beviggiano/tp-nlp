@@ -7,6 +7,7 @@ src/xmtc_propensity_robustness.egg-info/requires.txt
 src/xmtc_propensity_robustness.egg-info/top_level.txt
 src/xmtc_robustness/__init__.py
 src/xmtc_robustness/analysis.py
+src/xmtc_robustness/data.py
 src/xmtc_robustness/metrics.py
 src/xmtc_robustness/models/__init__.py
 src/xmtc_robustness/models/base.py
