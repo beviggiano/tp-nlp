@@ -1,0 +1,60 @@
+# Python cache/build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local environment/configuration
+.env
+.env.*
+!.env.example
+
+# IDE/editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local datasets and large generated matrices
+data/*
+!data/README.md
+!data/.gitkeep
+*.npz
+*.npy
+*.mtx
+
+# Model artifacts, embeddings, and ANN indexes
+artifacts/
+checkpoints/
+models/
+embeddings/
+indexes/
+*.faiss
+*.hnsw
+*.index
+
+# Experiment outputs
+outputs/
+results/
+reports/generated/
+logs/
+*.log
+
+# Notebook checkpoints
+.ipynb_checkpoints/
