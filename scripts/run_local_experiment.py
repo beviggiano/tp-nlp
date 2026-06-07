@@ -23,12 +23,18 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--representation", default="tfidf", choices=["tfidf", "sentence-transformer"])
     parser.add_argument("--n-neighbors", default=32, type=int)
     parser.add_argument("--embedding-model", default="sentence-transformers/all-MiniLM-L6-v2")
+    parser.add_argument("--skip-train-lines", default=0, type=int, help="Initial train text lines to skip, useful for headers.")
+    parser.add_argument("--skip-test-lines", default=0, type=int, help="Initial test text lines to skip, useful for headers.")
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
-    dataset = load_local_dataset(args.data)
+    dataset = load_local_dataset(
+        args.data,
+        skip_train_lines=args.skip_train_lines,
+        skip_test_lines=args.skip_test_lines,
+    )
 
     predictions = {}
     max_k = max(args.ks)

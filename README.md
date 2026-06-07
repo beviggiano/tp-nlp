@@ -79,6 +79,25 @@ Then run:
 python scripts/run_local_experiment.py --data data/my_dataset --models baseline retrieval --ks 1 3 5 --dataset-preset amazon-670k
 ```
 
+If loading fails, inspect row counts and sparse shapes with:
+
+```bash
+python scripts/check_dataset.py --data data/my_dataset
+```
+
+If a text file has a header, keep the raw file and skip it at runtime:
+
+```bash
+python scripts/run_local_experiment.py --data data/my_dataset --models baseline --skip-train-lines 1
+```
+
+If a label matrix was generated with the wrong number of columns, rebuild it
+from raw integer label ids:
+
+```bash
+python scripts/build_label_matrix.py --labels data/my_dataset/test_labels.txt --output data/my_dataset/y_test.npz --n-labels 670091 --skip-lines 1
+```
+
 Use `--models baseline` for a first smoke test. Use `--retrieval-backend faiss`
 or `--retrieval-backend hnswlib` after installing the optional dependency and
 using dense embeddings or TF-IDF projected with SVD in code.
